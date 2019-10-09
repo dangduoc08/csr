@@ -1,0 +1,3 @@
+@function calc-container-height($header-height, $footer-height) {
+  @return calc(100vh - (#{$header-height} + #{$footer-height}));
+}

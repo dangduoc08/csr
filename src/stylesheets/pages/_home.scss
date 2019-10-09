@@ -1,0 +1,17 @@
+@import "../abstracts/variables";
+
+.home {
+  text-align: center;
+  &__logo {
+    height: 40vmin;
+  }
+
+  &__header {
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+
+  &__link {
+    color: $link-cl;
+  }
+}

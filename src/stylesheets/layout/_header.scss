@@ -1,0 +1,22 @@
+@import "../abstracts/variables";
+
+.header {
+  background-color: $sub-bg;
+  height: $header-height;
+  &__nav {
+    padding: 10px 0px;
+  }
+  &__nav-item {
+    color: whitesmoke;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 15px;
+    &:first-child {
+      margin-left: 0px;
+    }
+    &:hover {
+      background-color: darken($sub-bg, 5%);
+      color: white;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+@import "../abstracts/variables";
+
+.container {
+  background-color: $sub-bg;
+  height: $container-height;
+  @extend .flex, .flex--center, .flex--middle;
+}

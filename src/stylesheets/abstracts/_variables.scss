@@ -1,0 +1,11 @@
+@import "./functions";
+
+// Colors
+$main-bg: #f4f5f7;
+$sub-bg: #282c34;
+$link-cl: #09d3ac;
+
+// Measures
+$header-height: 50px;
+$footer-height: 0px;
+$container-height: calc-container-height($header-height, $footer-height);

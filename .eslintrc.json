@@ -1,0 +1,84 @@
+{
+  "plugins": [
+    "react",
+    "react-hooks"
+  ],
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true
+    }
+  },
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "globals": {
+    "arguments": true
+  },
+  "rules": {
+    "quotes": [
+      "warn",
+      "single"
+    ],
+    "arrow-body-style": [
+      "warn",
+      "as-needed"
+    ],
+    "jsx-quotes": [
+      "warn",
+      "prefer-single"
+    ],
+    "no-var": [
+      "warn"
+    ],
+    "no-duplicate-imports": [
+      "warn",
+      {
+        "includeExports": true
+      }
+    ],
+    "no-console": "error",
+    "no-dupe-keys": "error",
+    "semi": [
+      "warn",
+      "never"
+    ],
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "camelcase": [
+      "warn",
+      {
+        "allow": [
+          "^UNSAFE_"
+        ]
+      }
+    ],
+    "eqeqeq": "error",
+    "no-undef": "off",
+    "comma-dangle": [
+      "warn",
+      {
+        "arrays": "never",
+        "objects": "never",
+        "imports": "never",
+        "exports": "never",
+        "functions": "never"
+      }
+    ],
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn"
+  }
+}

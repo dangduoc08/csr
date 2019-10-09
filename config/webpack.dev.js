@@ -1,61 +1,90 @@
 const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+const CONFIG = require('../server/config')
 
 module.exports = {
   mode: 'development',
   devtool: 'source-map',
   entry: {
-    main: ['./src']
+    main: [
+      'regenerator-runtime/runtime',
+      'core-js/stable',
+      'webpack-hot-middleware/client?reload=true',
+      './src'
+    ]
   },
   output: {
-    filename: '[name].[hash].js',
-    path: path.resolve(__dirname, '../dist'),
+    filename: '[name].bundle.js',
+    chunkFilename: '[name].chunk.js',
+    path: path.resolve(__dirname, `../${CONFIG.OUTPUT_DIR}`)
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all'
+    }
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
   module: {
     rules: [
       {
-        test: /\.css$/i,
+        test: /\.(jpeg|jpg|gif|png|svg|woff|ttf|wav|mp3)$/i,
         use: [
           {
-            loader: 'style-loader',
+            loader: 'file-loader',
+            options: {
+              outputPath: 'images'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(css|scss)$/i,
+        use: [
+          {
+            loader: 'style-loader'
           },
           {
-            loader: 'css-loader',
+            loader: 'css-loader'
+          },
+          {
+            loader: 'sass-loader'
           }
-        ],
+        ]
       },
       {
         test: /\.(js|jsx)$/i,
         use: [
           {
-            loader: 'babel-loader'
+            loader: 'babel-loader',
+            options: {
+              envName: 'development'
+            }
           }
         ],
         exclude: /node_modules/
-      },
-      {
-        test: /\.(png|jpeg|jpg|svg)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-          }
-        ]
       }
     ]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    // new BundleAnalyzerPlugin(),
     new HtmlWebpackPlugin({
       template: './src/index.html'
+    }),
+    new BundleAnalyzerPlugin({
+      analyzerHost: CONFIG.HOST,
+      analyzerPort: CONFIG.WEBPACK_BUNDLE_ANALYZER_PORT,
+      openAnalyzer: false,
+      logLevel: 'silent'
     })
   ],
   devServer: {
     compress: false,
     hot: true,
     overlay: true,
-    // logLevel: 'warn',
-  },
+    logLevel: 'warn'
+  }
 }

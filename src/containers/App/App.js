@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import Counter from '../Counter'
+import React from 'react'
+import Layout from '../Layout'
 
-export default class App extends Component {
-  render() {
-    return (
-      <div className='app'>
-        <Counter />
-      </div>
-    )
-  }
+function App() {
+  return (
+    <div className='app'>
+      <Layout />
+    </div>
+  )
 }
+
+export default App

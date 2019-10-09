@@ -1,5 +1,6 @@
 module.exports = function (api) {
-  api.cache(true)
+  const isDev = api.env() === 'development'
+
   const presets = [
     [
       '@babel/preset-env',
@@ -16,7 +17,21 @@ module.exports = function (api) {
     ]
   ]
 
+  const plugins = [
+    '@babel/plugin-proposal-class-properties'
+  ]
+
+  if (!isDev) {
+    presets.push([
+      'minify',
+      {
+        keepFnName: false
+      }
+    ])
+  }
+
   return {
     presets,
+    plugins
   }
 }
