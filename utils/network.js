@@ -1,32 +1,32 @@
 const os = require('os')
 
-class IP {
+class Network {
+  static instance
   constructor() {
-    this.instance
-    this.address
+    this.LAN
   }
 
-  getAddress() {
-    let address
+  getLAN() {
+    let LAN
     Object.values(os.networkInterfaces()).forEach(networkInterface => {
       networkInterface.forEach(iface => {
         if (iface.family === 'IPv4' && !iface.internal) {
-          address = iface.address
+          LAN = iface.address
           return
         }
       })
     })
-    return address
+    return LAN
   }
 
   static getInstance() {
     if (!this.instance) {
-      this.instance = new IP()
-      this.address = this.instance.getAddress()
+      this.instance = new Network()
+      this.LAN = this.instance.getLAN()
     }
     return this
   }
 }
 
-module.exports = IP
+module.exports = Network
 

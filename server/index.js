@@ -4,10 +4,9 @@ import expressStaticGzip from 'express-static-gzip'
 import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
 import webpackHotMiddleware from 'webpack-hot-middleware'
-import webpackConfig from '../config/webpack.dev'
-import logger from './logger'
-import CONFIG from './config'
-import argv from './argv'
+const { argv, logger } = require('../utils')
+import webpackConfig from '../configs/webpack.dev'
+import CONFIG from '../configs/config'
 
 const isDev = CONFIG.NODE_ENV === 'development'
 

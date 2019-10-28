@@ -10,8 +10,8 @@
   "license": "UNLICENSED",
   "scripts": {
     "clean": "rimraf *_build",
-    "prebuild": "npm run clean",
-    "build": "webpack --config=./config/webpack.prod.js --progress",
+    "prebuild": "yarn -s clean",
+    "build": "webpack --config=./configs/webpack.prod.js --progress",
     "postbuild": "npx babel --env-name production server --out-dir server_build",
     "start:dev": "NODE_ENV=development nodemon --watch server --watch config --exec babel-node server",
     "start:prod": "NODE_ENV=production node server_build --port=9090"

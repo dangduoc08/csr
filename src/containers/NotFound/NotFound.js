@@ -3,7 +3,7 @@ import React from 'react'
 function NotFound() {
   return(
     <div className='not-found'>
-      OOPS!
+      <img style={{ width: '50%' }} src={require('../../assets/images/404.png')} />
     </div>
   )
 }

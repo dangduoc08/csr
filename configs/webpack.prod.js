@@ -4,7 +4,7 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCSSAssetsWebpackPlugin = require('optimize-css-assets-webpack-plugin')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
-const CONFIG = require('../server/config')
+const CONFIG = require('./config')
 
 module.exports = {
   mode: 'production',

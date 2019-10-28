@@ -2,6 +2,7 @@
 
 .home {
   text-align: center;
+  @extend .flex, .flex--center, .flex--middle;
   &__logo {
     height: 40vmin;
   }

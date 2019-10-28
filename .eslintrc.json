@@ -24,32 +24,66 @@
     "arguments": true
   },
   "rules": {
-    "quotes": [
-      "warn",
+    "no-var": [ // Use let, const not var
+      2
+    ],
+    "quotes": [ // Use '' not "", ``
+      2,
       "single"
     ],
-    "arrow-body-style": [
-      "warn",
+    "no-unneeded-ternary": [ // Use const isGreater = 1 >= 2 not const isGreater = 1 >= 2 ? true : false
+      1
+    ],
+    "arrow-body-style": [ // Use () => 'test' not () => { return 'test' }
+      2,
       "as-needed"
+    ],
+    "arrow-spacing": [ // Use () => 'test' not ()=>'test'
+      1,
+      {
+        "before": true,
+        "after": true
+      }
+    ],
+    "prefer-const": [ // Use const test = 'test' not let test = 'test'
+      1
+    ],
+    "comma-dangle": [ // Use { thisIsTest: 'test' } not { this_is_test: 'test', }
+      1
+    ],
+    "semi": [ // Use const test = 'test' not const test = 'test';
+      2,
+      "never"
+    ],
+    "no-dupe-keys": [ // No { test: 'abc', test: 'xyz' }
+      2
+    ],
+    "eqeqeq": [ // Use === not ==
+      2,
+      "always"
+    ],
+    "no-console": [ // No console
+      1
+    ],
+    "block-spacing": [ // Use function test() { return true } not function test(){return true}
+      2
+    ],
+    "comma-spacing": [ // Use { a: 'a', b: 'b' } not { a: 'a' ,b: 'b' }
+      2,
+      {
+        "before": false,
+        "after": true
+      }
     ],
     "jsx-quotes": [
       "warn",
       "prefer-single"
-    ],
-    "no-var": [
-      "warn"
     ],
     "no-duplicate-imports": [
       "warn",
       {
         "includeExports": true
       }
-    ],
-    "no-console": "error",
-    "no-dupe-keys": "error",
-    "semi": [
-      "warn",
-      "never"
     ],
     "indent": [
       "error",
@@ -63,21 +97,11 @@
       {
         "allow": [
           "^UNSAFE_"
-        ]
+        ],
+        "properties": "never"
       }
     ],
-    "eqeqeq": "error",
     "no-undef": "off",
-    "comma-dangle": [
-      "warn",
-      {
-        "arrays": "never",
-        "objects": "never",
-        "imports": "never",
-        "exports": "never",
-        "functions": "never"
-      }
-    ],
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn"
   }
